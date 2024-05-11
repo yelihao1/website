@@ -1,44 +1,105 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .layer{position:absolute;
-            background-color:orange;
-            border-radius:5px;
-            }
-        </style>    
-    </head>
-    <body>
-        <script src="js/hanoi.js"></script>
-        <div>
-            <div style = "background-color:orange;
-                 margin-top:25px;
-                 width:300px;
-                 height:50px;
-                 
-                 "></div>
-           
-            <div style = "margin:-25px 0px -100px 0px;
-                 top:-30px;
-                 background-color:orange;
-                 width:300px;
-                 height:50px;
-                 border-radius:150px/25px;"></div>
-            <div style = "
-                 top:-60px;
-                 background-color:yellow;
-                 width:298px;
-                 height:50px;
-                 background-image: radial-gradient(#101010,#305020,15% yellow,orange);
-                 border-radius:149px/25px;
-                 border:1px red solid;
-                 "></div>    
-            
-            
-            
-        </div>
-    </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hanoi</title>
+	<style>
+		*{margin:0;padding:0;}
+		h1{margin:25px 0;font-size: 50px;color: rgb(255, 208, 0);text-shadow: 3px 2px 0px #fff;}
+		body
+		{
+		width:100%;height:120%; 
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-attachment:fixed;
+		}
+		#content{font-weight: 800;font-size:20px;text-shadow: 1px 1px 0px #fff;}
+		#control{line-height:30px;margin:5px;}
+		#log{width:80%;text-align:center;margin:0 auto;}
+		#view{width:70%;height:500px;margin:2% auto;vertical-align: bottom;}
+		#view,#txtlog,#detaillog,.dizuo,.block{border:1px solid rgb(255, 255, 255);position: relative;}
+		.dizuo{position: absolute;width:20%;height:20px;background-color:green;top:480px;color:white;font-size: 15px;}
+		.shugun{position: absolute;height:480px;width:4px;background-color:black;}
+		.button 
+		{
+		
+		border:0.5px solid rgb(0, 60, 255);
+		color: blue;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		margin:10px;
+		border-radius: 8px;
+		font-weight: 800;
+		text-shadow: 1px 1px 0px #fff;
+		}
+		.sg1{left:19.5%;}/*差9.5%*/
+		.sg2{left:49.5%;}
+		.sg3{left:79.5%;}
+		.dz1{left:10%;}
+		.dz2{left:40%;}
+		.dz3{left:70%;}
+		#block{position:absolute;}
+		.block{position:absolute;background-color:red;z-index:9999;}
+		.log{width:30%;float:left;text-align:left;margin:0 4px;}
+		</style>
+	<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script src="drag.js"></script>
+
+</head>
+<body>
+			
+	<div id="content">
+			
+		<div id="control">
+			
+			<label for="num">count:</label>
+			<input style="height: 20px" type="text" id="num" value="4" />
+		</div>
+		<div id="control">
+			<label for="speed">speed(100-10000):</label>
+			<input  style="height: 20px;" type="text" id="speed" value="500" />
+		</div>
+	
+		
+			
+		<div id="control">
+			<input class="button"   type="button" value="show/pause" id="init" />
+			<input class="button"  type="button" value="start" id="start" />
+		</div>
+		
+		<div id="view">
+			<div id="block">
+				<!-- 这里存放各种块 -->
+			</div>
+			<div id="sg1" class="shugun sg1"></div>
+			<div id="sg2" class="shugun sg2"></div>
+			<div id="sg3" class="shugun sg3"></div>
+			<div id="dizuo1" class="dizuo dz1">A</div>
+			<div id="dizuo2" class="dizuo dz2">B</div>
+			<div id="dizuo3" class="dizuo dz3">C</div>			
+		</div>
+		<div>
+		</div>
+		<div>
+		<input class="button" type="button" value="A--->B" id="A_B" />
+		<input class="button" type="button" value="B--->C" id="B_C" />
+		<input class="button" type="button" value="A--->C" id="A_C" />
+		</div>
+		<div></div>
+		<div>
+		<input class="button" type="button" value="B--->A" id="B_A" />
+		<input class="button" type="button" value="C--->B" id="C_B" />
+		<input class="button" type="button" value="C--->A" id="C_A" />
+		</div>
+		<div id="log">
+			<div style="clear:both;">
+				<textarea style="font-weight: 800);" name="txtlog" id="txtlog" cols="30%" rows="7%" ></textarea>
+				<textarea style="font-weight: 800;" name="detaillog" id="detaillog" cols="50%" rows="7%" value="start"></textarea>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>
